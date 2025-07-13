@@ -1,0 +1,168 @@
+:root {
+    --main-bg: #000000;
+    --main-color: #ffffff;
+    --main-font: 'Ubuntu', sans-serif;
+    --border: 2px solid #d0d0d0;
+    --tile-size: 25px;
+    --health-height: 3px;
+    --game-box-gap: 10px;
+
+    --field-width: 1000px;
+    --field-height: 600px;
+
+    --controls-bg: #222222;
+
+    --enemy-health-color: #ff0000;
+    --player-health-color: #00ff00;
+
+    --modal-bg: rgba(0, 0, 0, 0.8);
+    --modal-content-bg: #181818;
+    --modal-content-color: #fff;
+    --modal-content-radius: 12px;
+    --modal-content-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    --restart-btn-bg: #2dff54;
+    --restart-btn-bg-hover: #38dd46;
+    --restart-btn-color: #181818;
+    --restart-btn-transition: background 0.15s;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--main-bg);
+    color: var(--main-color);
+    font-family: var(--main-font);
+}
+
+h1 {
+    font-family: "Playfair Display";
+    margin: 10px 70px;
+}
+
+.game-box {
+    display: flex;
+    justify-content: center;
+    gap: var(--game-box-gap);
+}
+
+.field {
+    position: relative;
+    width: var(--field-width);
+    height: var(--field-height);
+    width: var(--field-width);
+    height: var(--field-height);
+    border: var(--border);
+}
+
+.field .tile {
+    position: absolute;
+    width: var(--tile-size);
+    height: var(--tile-size);
+    background-size: 100%;
+    background-image: url(images/tile-.png);
+    z-index: 5;
+}
+
+.field .tileW {
+    background-image: url(images/tile-W.png);
+}
+
+.field .tileE {
+    background-image: url(images/tile-E.png);
+    z-index: 10;
+}
+
+.field .tileP {
+    background-image: url(images/tile-P.png);
+    z-index: 10;
+}
+
+.field .tileHP {
+    background-image: url(images/tile-HP.png);
+    z-index: 9;
+}
+
+.field .tileSW {
+    background-image: url(images/tile-SW.png);
+    z-index: 9;
+}
+
+.field .tile .health {
+    background-color: var(--enemy-health-color);
+    z-index: 11;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: var(--health-height);
+}
+
+.field .tileP .health {
+    background-color: var(--player-health-color);
+}
+
+.game-info {
+    padding: 20px;
+    border: var(--border);
+    font-size: 14px;
+}
+
+.game-info h3 {
+    margin: 0 0 15px 0;
+}
+
+.game-info p {
+    margin: 10px 0;
+}
+
+.info {
+    padding: 10px 15px;
+
+}
+
+.controls {
+    background-color: var(--controls-bg);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--modal-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background: var(--modal-content-bg);
+    color: var(--modal-content-color);
+    border-radius: var(--modal-content-radius);
+    box-shadow: var(--modal-content-shadow);
+    padding: 40px 30px 30px 30px;
+    text-align: center;
+}
+
+#restart-btn {
+    background: var(--restart-btn-bg);
+    color: var(--restart-btn-color);
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 32px;
+    margin-top: 24px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: var(--restart-btn-transition);
+}
+
+#restart-btn:hover {
+    background: var(--restart-btn-bg-hover);
+}
